@@ -21,7 +21,7 @@ const TikTokIcon = ({ size = 16 }: { size?: number }) => (
   </svg>
 );
 
-export default function REProductionWebsite() {
+export default function REStudiosWebsite() {
   
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -31,7 +31,6 @@ export default function REProductionWebsite() {
     }
   };
 
-  // Logic to determine icon based on the single link string
   const getLinkIcon = (url: string) => {
     if (url.includes('instagram.com')) return <Instagram size={14} />;
     if (url.includes('tiktok.com')) return <TikTokIcon size={14} />;
@@ -63,13 +62,11 @@ export default function REProductionWebsite() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-[#F2F2F2] font-mono selection:bg-[#FF0000] selection:text-white">
       
-      <div className="fixed inset-0 pointer-events-none border-[1px] border-white/5 z-50 m-4 md:m-8" />
-
       {/* NAVIGATION */}
       <nav className="relative z-[60] flex justify-between items-center p-6 md:px-12 border-b border-white/5 bg-[#0A0A0A]/90 backdrop-blur-md sticky top-0">
         <div className="flex flex-col cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
           <span className="text-2xl font-black tracking-tighter leading-none">
-            RE<span className="text-[#FF0000]">:</span>PRODUCTION
+            RE<span className="text-[#FF0000]">:</span>STUDIOS
           </span>
           <span className="text-[8px] tracking-[0.4em] opacity-40 uppercase">USM Collective</span>
         </div>
@@ -91,7 +88,7 @@ export default function REProductionWebsite() {
               <span className="text-transparent" style={{ WebkitTextStroke: '1px white' }}>DOMINATION</span>
             </h1>
             <p className="max-w-xl mx-auto lg:mx-0 text-sm md:text-base text-white/50 leading-relaxed mb-10 uppercase tracking-widest">
-              A high-output production house redefining the student film narrative for FFAM 2026.
+              A high-output cinematic studio redefining the student film narrative for FFAM 2026.
             </p>
             <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="inline-flex bg-[#FF0000] text-white px-10 py-5 text-xs font-black items-center gap-4 hover:bg-white hover:text-black transition-all">
               INITIATE PARTNERSHIP
@@ -116,10 +113,10 @@ export default function REProductionWebsite() {
           </div>
           <div className="space-y-6">
             <p className="text-lg md:text-xl text-white/80 leading-relaxed font-bold uppercase tracking-tight">
-              RE: Production is a multidisciplinary creative collective based in <span className="text-[#FF0000]">Universiti Sains Malaysia (USM)</span>. 
+              RE: Studios is a multidisciplinary creative collective based in <span className="text-[#FF0000]">Universiti Sains Malaysia (USM)</span>. 
             </p>
             <p className="text-sm md:text-base text-white/50 leading-relaxed uppercase tracking-widest">
-              We are redefining the "student film" narrative by operating as a high-output production house. Our team comprises specialists—Narrative Filmmakers, Commercial Directors, Audio Engineers, and VFX Artists—working in professional unison. We don't just make films; we build cinematic benchmarks.
+              We are redefining the "student film" narrative by operating as a high-output studio. Our team comprises specialists—Narrative Filmmakers, Commercial Directors, Audio Engineers, and VFX Artists—working in professional unison. We don't just make films; we build cinematic benchmarks.
             </p>
           </div>
         </div>
@@ -154,7 +151,7 @@ export default function REProductionWebsite() {
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl font-black uppercase tracking-tighter italic">/ Unit_Registry</h2>
-            <p className="text-[9px] text-white/30 uppercase tracking-[0.3em] mt-1">Full Production Personnel // FFAM 2026</p>
+            <p className="text-[9px] text-white/30 uppercase tracking-[0.3em] mt-1">Full Personnel // FFAM 2026</p>
           </div>
           <div className="bg-[#FF0000]/10 border border-[#FF0000]/30 p-3">
             <p className="text-[10px] text-[#FF0000] font-black uppercase tracking-widest">
@@ -259,7 +256,7 @@ export default function REProductionWebsite() {
           <Instagram size={14} /> IG: @REPRODUCTIONUSM
         </a>
         <div className="text-[8px] opacity-20 uppercase tracking-[0.5em]">
-          RE: PRODUCTION // USM // FFAM 2026
+          RE: STUDIOS // USM // FFAM 2026
         </div>
       </footer>
 
