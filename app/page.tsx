@@ -106,7 +106,12 @@ export default function REStudiosWebsite() {
 
       {/* WHO WE ARE */}
       <section id="about" className="relative z-10 p-8 md:p-24 border-y border-white/5 scroll-mt-20 overflow-hidden">
-        <div className="max-w-4xl mx-auto relative">
+        {/* Decorative Background Text */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
+          <span className="text-[25vw] font-black leading-none uppercase">IDENTITY</span>
+        </div>
+        
+        <div className="max-w-4xl mx-auto relative z-10">
           <div className="flex items-center gap-4 mb-8">
             <Users className="text-[#FF0000]" size={32} />
             <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter italic">Who_We_Are</h2>
@@ -124,7 +129,10 @@ export default function REStudiosWebsite() {
 
       {/* MISSION & GOAL */}
       <section id="mission" className="relative z-10 p-8 md:p-20 bg-[#0F0F0F] border-b border-white/5 scroll-mt-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 relative">
+          {/* Vertical Line between Mission and Goal (Desktop only) */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/5" />
+          
           <div>
             <div className="flex items-center gap-4 mb-6">
               <Target className="text-[#FF0000]" size={32} />
@@ -134,7 +142,7 @@ export default function REStudiosWebsite() {
               To operate as a multidisciplinary creative collective that transcends the "student film" label. We aim to deliver high-fidelity cinematic experiences through professional unison, rigorous discipline, and artistic fearlessness.
             </p>
           </div>
-          <div>
+          <div className="md:pl-16">
             <div className="flex items-center gap-4 mb-6">
               <Award className="text-[#FF0000]" size={32} />
               <h2 className="text-3xl font-black uppercase tracking-tighter italic">The_Goal</h2>
