@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { 
-  ChevronRight, Mail, Phone, ExternalLink, Target, Award
+  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram
 } from 'lucide-react';
 
 export default function REProductionWebsite() {
@@ -52,7 +52,7 @@ export default function REProductionWebsite() {
         </div>
         
         <div className="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest">
-          <a href="#mission" onClick={(e) => scrollToSection(e, 'mission')} className="hover:text-[#FF0000] transition-colors">Mission</a>
+          <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-[#FF0000] transition-colors">Identity</a>
           <a href="#team" onClick={(e) => scrollToSection(e, 'team')} className="hover:text-[#FF0000] transition-colors">Registry</a>
           <a href="#tiers" onClick={(e) => scrollToSection(e, 'tiers')} className="hover:text-[#FF0000] transition-colors">Tiers</a>
           <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="hover:text-[#FF0000] transition-colors text-[#FF0000]">Contact</a>
@@ -85,15 +85,36 @@ export default function REProductionWebsite() {
         </div>
       </section>
 
+      {/* WHO WE ARE SECTION */}
+      <section id="about" className="relative z-10 p-8 md:p-24 border-y border-white/5 scroll-mt-20 overflow-hidden">
+        <div className="max-w-4xl mx-auto relative">
+          <div className="flex items-center gap-4 mb-8">
+            <Users className="text-[#FF0000]" size={32} />
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter italic">Who_We_Are</h2>
+          </div>
+          <div className="space-y-6">
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed font-bold uppercase tracking-tight">
+              RE: Production is a multidisciplinary creative collective based in <span className="text-[#FF0000]">Universiti Sains Malaysia (USM)</span>. 
+            </p>
+            <p className="text-sm md:text-base text-white/50 leading-relaxed uppercase tracking-widest">
+              We are redefining the "student film" narrative by operating as a high-output production house. Our team comprises specialists—Narrative Filmmakers, Commercial Directors, Audio Engineers, and VFX Artists—working in professional unison. We don't just make films; we build cinematic benchmarks.
+            </p>
+          </div>
+          <div className="absolute -right-20 -top-10 text-[12rem] font-black text-white/[0.02] select-none pointer-events-none">
+            RE:PROD
+          </div>
+        </div>
+      </section>
+
       {/* MISSION & GOAL SECTION */}
-      <section id="mission" className="relative z-10 p-8 md:p-20 bg-[#0F0F0F] border-y border-white/5 scroll-mt-20">
+      <section id="mission" className="relative z-10 p-8 md:p-20 bg-[#0F0F0F] border-b border-white/5 scroll-mt-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
             <div className="flex items-center gap-4 mb-6">
               <Target className="text-[#FF0000]" size={32} />
               <h2 className="text-3xl font-black uppercase tracking-tighter italic">The_Mission</h2>
             </div>
-            <p className="text-white/60 leading-relaxed uppercase text-sm tracking-widest">
+            <p className="text-white/40 leading-relaxed uppercase text-sm tracking-widest">
               To operate as a multidisciplinary creative collective that transcends the "student film" label. We aim to deliver high-fidelity cinematic experiences through professional unison, rigorous discipline, and artistic fearlessness.
             </p>
           </div>
@@ -102,7 +123,7 @@ export default function REProductionWebsite() {
               <Award className="text-[#FF0000]" size={32} />
               <h2 className="text-3xl font-black uppercase tracking-tighter italic">The_Goal</h2>
             </div>
-            <p className="text-white/60 leading-relaxed uppercase text-sm tracking-widest">
+            <p className="text-white/40 leading-relaxed uppercase text-sm tracking-widest">
               Strategic positioning for FFAM 2026: Total Domination. Our objective is to secure the Overall Best Film award and sweep technical categories while empowering the next generation of Malaysian filmmakers.
             </p>
           </div>
@@ -202,12 +223,28 @@ export default function REProductionWebsite() {
                 <Mail size={20} className="text-[#FF0000]" /> restudiomanagement@gmail.com
               </a>
             </div>
+            <div className="space-y-1">
+              <label className="text-[9px] uppercase tracking-[0.4em] text-white/30">Official Instagram</label>
+              <a href="https://www.instagram.com/reproductionusm/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-lg md:text-xl font-black hover:text-[#FF0000] transition-colors break-all">
+                <Instagram size={20} className="text-[#FF0000]" /> @reproductionusm
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      <footer className="p-8 text-center text-[8px] opacity-20 uppercase tracking-[0.5em]">
-        RE: PRODUCTION // USM // FFAM 2026
+      <footer className="p-12 text-center flex flex-col items-center gap-4">
+        <a 
+          href="https://www.instagram.com/reproductionusm/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-white/20 hover:text-[#FF0000] transition-all flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] mb-2"
+        >
+          <Instagram size={14} /> IG: @REPRODUCTIONUSM
+        </a>
+        <div className="text-[8px] opacity-20 uppercase tracking-[0.5em]">
+          RE: PRODUCTION // USM // FFAM 2026
+        </div>
       </footer>
 
       <style jsx global>{`
