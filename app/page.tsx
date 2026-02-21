@@ -2,8 +2,24 @@
 
 import React from 'react';
 import { 
-  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram
+  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram, Globe
 } from 'lucide-react';
+
+// Custom TikTok Icon
+const TikTokIcon = ({ size = 16 }: { size?: number }) => (
+  <svg 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+  </svg>
+);
 
 export default function REProductionWebsite() {
   
@@ -13,6 +29,14 @@ export default function REProductionWebsite() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  // Logic to determine icon based on the single link string
+  const getLinkIcon = (url: string) => {
+    if (url.includes('instagram.com')) return <Instagram size={14} />;
+    if (url.includes('tiktok.com')) return <TikTokIcon size={14} />;
+    if (url.includes('behance.net') || url.includes('portfolio')) return <Globe size={14} />;
+    return <ExternalLink size={14} />;
   };
 
   const team = [
@@ -30,7 +54,7 @@ export default function REProductionWebsite() {
     { id: "ART_02", name: "Buja", role: "Lighting", link: "https://www.instagram.com/amzarzhri/" },
     { id: "ART_03", name: "Yen", role: "Gaffer", link: "https://www.instagram.com/fazreen_izran/" },
     { id: "ART_04", name: "Heng", role: "Props Master", link: "https://www.instagram.com/zehengwong/" },
-    { id: "ART_05", name: "Anissa", role: "Graphic Designer", link: "https://www.instagram.com/anissakml/" },
+    { id: "ART_05", name: "Anissa", role: "Graphic Designer", link: "https://www.behance.net/anissakamal" },
     { id: "MKT_01", name: "Fahim", role: "Social Media Manager", link: "https://www.instagram.com/fhkimii/" },
     { id: "OPS_01", name: "Padil", role: "Special Task", link: "https://www.instagram.com/seventwootwo11/" },
     { id: "OPS_02", name: "Kojek", role: "Special Task", link: "https://www.instagram.com/qjackzz_/" },
@@ -39,7 +63,6 @@ export default function REProductionWebsite() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-[#F2F2F2] font-mono selection:bg-[#FF0000] selection:text-white">
       
-      {/* HUD DECORATION */}
       <div className="fixed inset-0 pointer-events-none border-[1px] border-white/5 z-50 m-4 md:m-8" />
 
       {/* NAVIGATION */}
@@ -75,7 +98,6 @@ export default function REProductionWebsite() {
               <ChevronRight size={16} />
             </a>
           </div>
-
           <div className="order-1 lg:order-2 flex flex-col items-center lg:items-end">
             <div className="flex items-baseline">
               <span className="text-[10rem] md:text-[18rem] font-black tracking-tighter leading-none select-none">RE</span>
@@ -85,7 +107,7 @@ export default function REProductionWebsite() {
         </div>
       </section>
 
-      {/* WHO WE ARE SECTION */}
+      {/* WHO WE ARE */}
       <section id="about" className="relative z-10 p-8 md:p-24 border-y border-white/5 scroll-mt-20 overflow-hidden">
         <div className="max-w-4xl mx-auto relative">
           <div className="flex items-center gap-4 mb-8">
@@ -100,13 +122,10 @@ export default function REProductionWebsite() {
               We are redefining the "student film" narrative by operating as a high-output production house. Our team comprises specialists—Narrative Filmmakers, Commercial Directors, Audio Engineers, and VFX Artists—working in professional unison. We don't just make films; we build cinematic benchmarks.
             </p>
           </div>
-          <div className="absolute -right-20 -top-10 text-[12rem] font-black text-white/[0.02] select-none pointer-events-none">
-            RE:PROD
-          </div>
         </div>
       </section>
 
-      {/* MISSION & GOAL SECTION */}
+      {/* MISSION & GOAL */}
       <section id="mission" className="relative z-10 p-8 md:p-20 bg-[#0F0F0F] border-b border-white/5 scroll-mt-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
@@ -139,7 +158,7 @@ export default function REProductionWebsite() {
           </div>
           <div className="bg-[#FF0000]/10 border border-[#FF0000]/30 p-3">
             <p className="text-[10px] text-[#FF0000] font-black uppercase tracking-widest">
-              [SYSTEM NOTE]: CLICK ANY CARD TO VIEW INDIVIDUAL PORTFOLIOS.
+              [SYSTEM NOTE]: CLICK ANY CARD TO VIEW PERSONNEL PORTFOLIO.
             </p>
           </div>
         </div>
@@ -155,11 +174,9 @@ export default function REProductionWebsite() {
             >
               <div className="flex justify-between items-start mb-3">
                 <span className="text-[8px] text-[#FF0000] font-bold tracking-widest">{member.id}</span>
-                {member.link !== "#" && (
-                  <div className="text-white/40 group-hover:text-[#FF0000] transition-colors">
-                    <ExternalLink size={14} />
-                  </div>
-                )}
+                <div className="text-white/40 group-hover:text-[#FF0000] transition-colors">
+                  {getLinkIcon(member.link)}
+                </div>
               </div>
               <h3 className="text-xs font-black uppercase tracking-tighter group-hover:text-[#FF0000] transition-colors truncate">
                 {member.name}
@@ -209,7 +226,6 @@ export default function REProductionWebsite() {
             </h2>
             <p className="text-xs font-black uppercase tracking-[0.3em] opacity-80">Establish Connection for FFAM 2026</p>
           </div>
-
           <div className="w-full md:w-auto bg-black p-8 md:p-12 space-y-8 border border-white/20 shadow-2xl">
             <div className="space-y-1">
               <label className="text-[9px] uppercase tracking-[0.4em] text-white/30">Lead Producer</label>
@@ -253,8 +269,6 @@ export default function REProductionWebsite() {
     </div>
   );
 }
-
-/* --- REUSABLE COMPONENTS --- */
 
 function TierCard({ name, price, benefits, highlight = false }: { name: string, price: string, benefits: string[], highlight?: boolean }) {
   return (
