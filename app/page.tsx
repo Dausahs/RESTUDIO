@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { 
-  ChevronRight, Mail, Phone, ExternalLink, Target, Rocket, Award
+  ChevronRight, Mail, Phone, ExternalLink, Target, Award
 } from 'lucide-react';
 
 export default function REProductionWebsite() {
@@ -17,23 +17,23 @@ export default function REProductionWebsite() {
 
   const team = [
     { id: "LDR_01", name: "Bobskieee", role: "Producer", link: "https://www.tiktok.com/@bobskieee_" },
-    { id: "LDR_02", name: "Assistant Producer", role: "Management", link: "#" },
-    { id: "CRT_01", name: "Far", role: "Director", link: "#" },
-    { id: "CRT_02", name: "Clement", role: "Scriptwriter", link: "#" },
-    { id: "CRT_03", name: "Tara", role: "Storyboardist", link: "#" },
-    { id: "TCH_01", name: "Choy", role: "Director of Photography", link: "#" },
-    { id: "TCH_02", name: "Meyo", role: "1st AC / Main Editor", link: "#" },
-    { id: "TCH_03", name: "Altamiz", role: "VFX Artist", link: "#" },
-    { id: "TCH_04", name: "Apokalep", role: "Sound Designer", link: "#" },
-    { id: "TCH_05", name: "Mamat", role: "Sound Recordist", link: "#" },
-    { id: "ART_01", name: "Leo", role: "Make Up Artist", link: "#" },
-    { id: "ART_02", name: "Buja", role: "Lighting", link: "#" },
-    { id: "ART_03", name: "Yen", role: "Gaffer", link: "#" },
-    { id: "ART_04", name: "Heng", role: "Props Master", link: "#" },
-    { id: "ART_05", name: "Anissa", role: "Graphic Designer", link: "#" },
-    { id: "MKT_01", name: "Fahim", role: "Social Media Manager", link: "#" },
-    { id: "OPS_01", name: "Padil", role: "Special Task", link: "#" },
-    { id: "OPS_02", name: "Kojek", role: "Special Task", link: "#" },
+    { id: "LDR_02", name: "Aly", role: "Assistant Producer", link: "https://www.instagram.com/c.est___lavie/" },
+    { id: "CRT_01", name: "Far", role: "Director", link: "https://www.behance.net/farizasad" },
+    { id: "CRT_02", name: "Clement", role: "Scriptwriter", link: "https://www.instagram.com/cclementea/" },
+    { id: "CRT_03", name: "Tara", role: "Storyboardist", link: "https://www.instagram.com/tara.trisha/" },
+    { id: "TCH_01", name: "Choy", role: "Director of Photography", link: "https://www.instagram.com/ptraa_choyy/" },
+    { id: "TCH_02", name: "Meyyo", role: "1st AC / Main Editor", link: "https://www.instagram.com/shrulaimnnn/" },
+    { id: "TCH_03", name: "Altamis", role: "VFX Artist", link: "https://www.instagram.com/altam3ys/" },
+    { id: "TCH_04", name: "Apokalep", role: "Sound Designer", link: "https://www.instagram.com/apokalep/" },
+    { id: "TCH_05", name: "Mamat", role: "Sound Recordist", link: "https://www.instagram.com/_arifhz/" },
+    { id: "ART_01", name: "Leo", role: "Make Up Artist", link: "https://www.instagram.com/vlleo11/" },
+    { id: "ART_02", name: "Buja", role: "Lighting", link: "https://www.instagram.com/amzarzhri/" },
+    { id: "ART_03", name: "Yen", role: "Gaffer", link: "https://www.instagram.com/fazreen_izran/" },
+    { id: "ART_04", name: "Heng", role: "Props Master", link: "https://www.instagram.com/zehengwong/" },
+    { id: "ART_05", name: "Anissa", role: "Graphic Designer", link: "https://www.instagram.com/anissakml/" },
+    { id: "MKT_01", name: "Fahim", role: "Social Media Manager", link: "https://www.instagram.com/fhkimii/" },
+    { id: "OPS_01", name: "Padil", role: "Special Task", link: "https://www.instagram.com/seventwootwo11/" },
+    { id: "OPS_02", name: "Kojek", role: "Special Task", link: "https://www.instagram.com/qjackzz_/" },
   ];
 
   return (
@@ -118,23 +118,26 @@ export default function REProductionWebsite() {
           </div>
           <div className="bg-[#FF0000]/10 border border-[#FF0000]/30 p-3">
             <p className="text-[10px] text-[#FF0000] font-black uppercase tracking-widest">
-              [SYSTEM NOTE]: CLICK THE EXTERNAL LINK ON EACH CARD TO VIEW INDIVIDUAL PORTFOLIOS.
+              [SYSTEM NOTE]: CLICK ANY CARD TO VIEW INDIVIDUAL PORTFOLIOS.
             </p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {team.map((member) => (
-            <div 
+            <a 
               key={member.id} 
-              className="group relative bg-white/[0.03] border border-white/5 p-4 hover:bg-white/[0.07] hover:border-[#FF0000]/50 transition-all"
+              href={member.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`group relative bg-white/[0.03] border border-white/5 p-4 hover:bg-white/[0.07] hover:border-[#FF0000]/50 transition-all ${member.link === "#" ? "pointer-events-none" : "cursor-pointer"}`}
             >
               <div className="flex justify-between items-start mb-3">
                 <span className="text-[8px] text-[#FF0000] font-bold tracking-widest">{member.id}</span>
                 {member.link !== "#" && (
-                  <a href={member.link} target="_blank" rel="noopener noreferrer" title="View Portfolio" className="text-white/40 hover:text-[#FF0000] transition-colors">
+                  <div className="text-white/40 group-hover:text-[#FF0000] transition-colors">
                     <ExternalLink size={14} />
-                  </a>
+                  </div>
                 )}
               </div>
               <h3 className="text-xs font-black uppercase tracking-tighter group-hover:text-[#FF0000] transition-colors truncate">
@@ -144,7 +147,7 @@ export default function REProductionWebsite() {
                 {member.role}
               </p>
               <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-[#FF0000] group-hover:w-full transition-all duration-300" />
-            </div>
+            </a>
           ))}
         </div>
       </section>
