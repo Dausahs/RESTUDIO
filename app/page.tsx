@@ -49,7 +49,7 @@ export default function REProductionWebsite() {
     { id: "TCH_02", name: "Meyyo", role: "1st AC / Main Editor", link: "https://www.instagram.com/shrulaimnnn/" },
     { id: "TCH_03", name: "Altamis", role: "VFX Artist", link: "https://www.instagram.com/altam3ys/" },
     { id: "TCH_04", name: "Apokalep", role: "Sound Designer", link: "https://www.instagram.com/apokalep/" },
-    { id: "TCH_05", name: "Mamat", role: "Sound Recordist", link: "https://www.instagram.com/_arifhz/" },
+    { id: "TCH_05", name: "Mamat", role: "Sound Assistant", link: "https://www.instagram.com/_arifhz/" },
     { id: "ART_01", name: "Leo", role: "Make Up Artist", link: "https://www.instagram.com/vlleo11/" },
     { id: "ART_02", name: "Buja", role: "Lighting", link: "https://www.instagram.com/amzarzhri/" },
     { id: "ART_03", name: "Yen", role: "Gaffer", link: "https://www.instagram.com/fazreen_izran/" },
