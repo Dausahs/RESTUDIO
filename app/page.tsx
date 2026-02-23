@@ -2,26 +2,18 @@
 
 import React from 'react';
 import { 
-  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram, Globe
+  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram, Globe, Zap, Heart
 } from 'lucide-react';
 
 // Custom TikTok Icon
 const TikTokIcon = ({ size = 16 }: { size?: number }) => (
-  <svg 
-    width={size} 
-    height={size} 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round"
-  >
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
   </svg>
 );
 
 export default function REStudiosWebsite() {
+  const SOCIAL_URL = "https://www.instagram.com/restudiosusm/?hl=en";
   
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -60,18 +52,19 @@ export default function REStudiosWebsite() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-[#F2F2F2] font-mono selection:bg-[#FF0000] selection:text-white">
+    <div className="min-h-screen bg-[#0A0A0A] text-[#F2F2F2] font-mono selection:bg-[#FF0000] selection:text-white overflow-x-hidden">
       
       {/* NAVIGATION */}
-      <nav className="relative z-[60] flex justify-between items-center p-6 md:px-12 border-b border-white/5 bg-[#0A0A0A]/90 backdrop-blur-md sticky top-0">
-        <div className="flex flex-col cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-          <span className="text-2xl font-black tracking-tighter leading-none">
-            RE<span className="text-[#FF0000]">:</span>STUDIOS
-          </span>
-          <span className="text-[8px] tracking-[0.4em] opacity-40 uppercase">USM Collective</span>
+      <nav className="relative z-[60] flex flex-wrap justify-between items-center p-4 md:p-6 lg:px-12 border-b border-white/5 bg-[#0A0A0A]/90 backdrop-blur-md sticky top-0">
+        <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+          <img src="/asset/RE LOGO-01.svg" alt="RE Logo" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
+          <div className="flex flex-col">
+            <span className="text-lg md:text-2xl font-black tracking-tighter leading-none">RE<span className="text-[#FF0000]">:</span>STUDIOS</span>
+            <span className="text-[6px] md:text-[8px] tracking-[0.4em] opacity-40 uppercase">USM Collective</span>
+          </div>
         </div>
         
-        <div className="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-widest">
+        <div className="flex gap-4 md:gap-8 text-[8px] md:text-[10px] font-bold uppercase tracking-widest mt-2 md:mt-0">
           <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-[#FF0000] transition-colors">Identity</a>
           <a href="#team" onClick={(e) => scrollToSection(e, 'team')} className="hover:text-[#FF0000] transition-colors">Registry</a>
           <a href="#tiers" onClick={(e) => scrollToSection(e, 'tiers')} className="hover:text-[#FF0000] transition-colors">Tiers</a>
@@ -80,25 +73,25 @@ export default function REStudiosWebsite() {
       </nav>
 
       {/* HERO SECTION */}
-      <section className="relative z-10 px-8 md:px-16 pt-24 pb-32">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="relative z-10 px-6 md:px-16 pt-16 md:pt-24 pb-20 md:pb-32">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="order-2 lg:order-1 text-center lg:text-left">
-            <h1 className="text-6xl md:text-[8.5rem] font-black leading-[0.8] tracking-tighter uppercase mb-8">
-              TOTAL <br /> 
+            <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[8.5rem] font-black leading-[0.85] tracking-tighter uppercase mb-6 md:mb-8">
+              TOTAL <br className="hidden sm:block" /> 
               <span className="text-transparent" style={{ WebkitTextStroke: '1px white' }}>DOMINATION</span>
             </h1>
-            <p className="max-w-xl mx-auto lg:mx-0 text-sm md:text-base text-white/50 leading-relaxed mb-10 uppercase tracking-widest">
+            <p className="max-w-xl mx-auto lg:mx-0 text-xs md:text-base text-white/50 leading-relaxed mb-8 md:mb-10 uppercase tracking-widest px-4 lg:px-0">
               A high-output cinematic studio redefining the student film narrative for FFAM 2026.
             </p>
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="inline-flex bg-[#FF0000] text-white px-10 py-5 text-xs font-black items-center gap-4 hover:bg-white hover:text-black transition-all">
+            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="inline-flex bg-[#FF0000] text-white px-8 md:px-10 py-4 md:py-5 text-[10px] md:text-xs font-black items-center gap-4 hover:bg-white hover:text-black transition-all">
               INITIATE PARTNERSHIP
               <ChevronRight size={16} />
             </a>
           </div>
-          <div className="order-1 lg:order-2 flex flex-col items-center lg:items-end">
+          <div className="order-1 lg:order-2 flex flex-col items-center lg:items-end scale-75 md:scale-100">
             <div className="flex items-baseline">
-              <span className="text-[10rem] md:text-[18rem] font-black tracking-tighter leading-none select-none">RE</span>
-              <span className="text-[10rem] md:text-[18rem] font-black text-[#FF0000] leading-none animate-[blink_1s_step-end_infinite] select-none">:</span>
+              <span className="text-[8rem] md:text-[18rem] font-black tracking-tighter leading-none select-none">RE</span>
+              <span className="text-[8rem] md:text-[18rem] font-black text-[#FF0000] leading-none animate-[blink_1s_step-end_infinite] select-none">:</span>
             </div>
           </div>
         </div>
@@ -106,21 +99,20 @@ export default function REStudiosWebsite() {
 
       {/* WHO WE ARE */}
       <section id="about" className="relative z-10 p-8 md:p-24 border-y border-white/5 scroll-mt-20 overflow-hidden">
-        {/* Decorative Background Text */}
         <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
           <span className="text-[25vw] font-black leading-none uppercase">IDENTITY</span>
         </div>
         
         <div className="max-w-4xl mx-auto relative z-10">
-          <div className="flex items-center gap-4 mb-8">
-            <Users className="text-[#FF0000]" size={32} />
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter italic">Who_We_Are</h2>
+          <div className="flex items-center gap-4 mb-6 md:mb-8">
+            <Users className="text-[#FF0000] w-6 h-6 md:w-8 md:h-8" />
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic">Who_We_Are</h2>
           </div>
-          <div className="space-y-6">
-            <p className="text-lg md:text-xl text-white/80 leading-relaxed font-bold uppercase tracking-tight">
+          <div className="space-y-4 md:space-y-6">
+            <p className="text-base md:text-xl text-white/80 leading-snug font-bold uppercase tracking-tight">
               RE: Studios is a multidisciplinary creative collective based in <span className="text-[#FF0000]">Universiti Sains Malaysia (USM)</span>. 
             </p>
-            <p className="text-sm md:text-base text-white/50 leading-relaxed uppercase tracking-widest">
+            <p className="text-xs md:text-base text-white/50 leading-relaxed uppercase tracking-widest">
               We are redefining the "student film" narrative by operating as a high-output studio. Our team comprises specialists—Narrative Filmmakers, Commercial Directors, Audio Engineers, and VFX Artists—working in professional unison. We don't just make films; we build cinematic benchmarks.
             </p>
           </div>
@@ -129,26 +121,27 @@ export default function REStudiosWebsite() {
 
       {/* MISSION & GOAL */}
       <section id="mission" className="relative z-10 p-8 md:p-20 bg-[#0F0F0F] border-b border-white/5 scroll-mt-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 relative">
-          {/* Vertical Line between Mission and Goal (Desktop only) */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/5" />
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 relative">
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-white/10" />
           
           <div>
-            <div className="flex items-center gap-4 mb-6">
-              <Target className="text-[#FF0000]" size={32} />
-              <h2 className="text-3xl font-black uppercase tracking-tighter italic">The_Mission</h2>
+            <div className="flex items-center gap-4 mb-4 md:mb-6">
+              <Target className="text-[#FF0000] w-6 h-6 md:w-8 md:h-8" />
+              <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter italic">The_Goal</h2>
             </div>
-            <p className="text-white/40 leading-relaxed uppercase text-sm tracking-widest">
-              To operate as a multidisciplinary creative collective that transcends the "student film" label. We aim to deliver high-fidelity cinematic experiences through professional unison, rigorous discipline, and artistic fearlessness.
+            <p className="text-white/40 leading-relaxed uppercase text-[11px] md:text-sm tracking-widest">
+              <span className="text-white font-bold block mb-2 text-xs md:text-base">Creative Fulfillment.</span> 
+              To rediscover the pure fun of filmmaking. Our priority is to create a piece of work that deeply satisfies the artistic desires of our entire team. We are making this for us first.
             </p>
           </div>
           <div className="md:pl-16">
-            <div className="flex items-center gap-4 mb-6">
-              <Award className="text-[#FF0000]" size={32} />
-              <h2 className="text-3xl font-black uppercase tracking-tighter italic">The_Goal</h2>
+            <div className="flex items-center gap-4 mb-4 md:mb-6">
+              <Award className="text-[#FF0000] w-6 h-6 md:w-8 md:h-8" />
+              <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter italic">The_Mission</h2>
             </div>
-            <p className="text-white/40 leading-relaxed uppercase text-sm tracking-widest">
-              Strategic positioning for FFAM 2026: Total Domination. Our objective is to secure the Overall Best Film award and sweep technical categories while empowering the next generation of Malaysian filmmakers.
+            <p className="text-white/40 leading-relaxed uppercase text-[11px] md:text-sm tracking-widest">
+              <span className="text-white font-bold block mb-2 text-xs md:text-base">Defying the Odds.</span> 
+              To prove that vision outweighs budget. Despite our youth and limited resources, we are here to compete toe-to-toe with those in more established positions. We aim to show that raw talent and passion can outshine privilege.
             </p>
           </div>
         </div>
@@ -156,37 +149,31 @@ export default function REStudiosWebsite() {
 
       {/* UNIT REGISTRY */}
       <section id="team" className="p-8 md:p-16 border-b border-white/10 bg-[#0A0A0A] scroll-mt-20">
-        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div>
-            <h2 className="text-2xl font-black uppercase tracking-tighter italic">/ Unit_Registry</h2>
-            <p className="text-[9px] text-white/30 uppercase tracking-[0.3em] mt-1">Full Personnel // FFAM 2026</p>
+            <h2 className="text-xl md:text-2xl font-black uppercase tracking-tighter italic">/ Unit_Registry</h2>
+            <p className="text-[8px] md:text-[9px] text-white/30 uppercase tracking-[0.3em] mt-1">Full Personnel // FFAM 2026</p>
           </div>
-          <div className="bg-[#FF0000]/10 border border-[#FF0000]/30 p-3">
-            <p className="text-[10px] text-[#FF0000] font-black uppercase tracking-widest">
+          <div className="bg-[#FF0000]/10 border border-[#FF0000]/30 p-2 md:p-3">
+            <p className="text-[8px] md:text-[10px] text-[#FF0000] font-black uppercase tracking-widest text-center md:text-left">
               [SYSTEM NOTE]: CLICK ANY CARD TO VIEW PERSONNEL PORTFOLIO.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
           {team.map((member) => (
-            <a 
-              key={member.id} 
-              href={member.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`group relative bg-white/[0.03] border border-white/5 p-4 hover:bg-white/[0.07] hover:border-[#FF0000]/50 transition-all ${member.link === "#" ? "pointer-events-none" : "cursor-pointer"}`}
-            >
-              <div className="flex justify-between items-start mb-3">
-                <span className="text-[8px] text-[#FF0000] font-bold tracking-widest">{member.id}</span>
-                <div className="text-white/40 group-hover:text-[#FF0000] transition-colors">
+            <a key={member.id} href={member.link} target="_blank" rel="noopener noreferrer" className="group relative bg-white/[0.03] border border-white/5 p-3 md:p-4 hover:bg-white/[0.07] hover:border-[#FF0000]/50 transition-all cursor-pointer">
+              <div className="flex justify-between items-start mb-2 md:mb-3">
+                <span className="text-[7px] md:text-[8px] text-[#FF0000] font-bold tracking-widest">{member.id}</span>
+                <div className="text-white/40 group-hover:text-[#FF0000] transition-colors scale-75 md:scale-100">
                   {getLinkIcon(member.link)}
                 </div>
               </div>
-              <h3 className="text-xs font-black uppercase tracking-tighter group-hover:text-[#FF0000] transition-colors truncate">
+              <h3 className="text-[10px] md:text-xs font-black uppercase tracking-tighter group-hover:text-[#FF0000] transition-colors truncate">
                 {member.name}
               </h3>
-              <p className="text-[8px] uppercase tracking-[0.1em] text-white/40 truncate">
+              <p className="text-[7px] md:text-[8px] uppercase tracking-[0.1em] text-white/40 truncate">
                 {member.role}
               </p>
               <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-[#FF0000] group-hover:w-full transition-all duration-300" />
@@ -196,74 +183,99 @@ export default function REStudiosWebsite() {
       </section>
 
       {/* SPONSORSHIP TIERS */}
-      <section id="tiers" className="p-8 md:p-20 border-b border-white/10 scroll-mt-20">
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl font-black uppercase tracking-tighter italic">/ Support_Framework</h2>
-          <p className="text-[10px] text-white/30 uppercase tracking-[0.3em] mt-2">Investment Levels for FFAM 2026</p>
+      <section id="tiers" className="p-8 md:p-20 border-b border-white/10 scroll-mt-20 bg-[#0A0A0A]">
+        <div className="mb-10 md:mb-16 text-center">
+          <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic">/ Support_Framework</h2>
+          <p className="text-[8px] md:text-[10px] text-white/30 uppercase tracking-[0.3em] mt-2">Investment Levels for FFAM 2026</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-px bg-white/5 border border-white/5">
+          
           <TierCard 
-            name="Silver Partner" 
-            price="RM 300" 
-            benefits={["Logo on 'Special Thanks' List", "Social Media Story Mention", "Special Thanks (End Credits)"]} 
+            name="Silver Partner (Contributor)" 
+            price="RM300 (or In-Kind)" 
+            icon={<Heart className="text-[#FF0000]" size={20}/>}
+            benefits={[
+              "Special Thanks (End Credits)",
+              "Logo on 'Special Thanks' List",
+              "Social Media Shout-outs post",
+              "Social Media Story Mention",
+              "Availability: Multiple"
+            ]} 
           />
+
           <TierCard 
-            name="Gold Partner" 
-            price="RM 600" 
+            name="Gold Partner (Official Supporter)" 
+            price="RM 500 (or In-Kind)" 
             highlight 
-            benefits={["Official Partner (End Credits)", "Passive Background Signage/Props", "Logo on Poster & Banners", "Social Media Shout-outs"]} 
+            icon={<Zap className="text-[#FF0000]" size={20}/>}
+            benefits={[
+              "Official Partner (End Credits)",
+              "Passive Integration: Background signage/props",
+              "Logo on 'Special Thanks' List",
+              "Social Media Shout-outs post",
+              "Social Media Story Mention",
+              "Logo on Poster & Banners",
+              "Availability: Multiple"
+            ]} 
           />
+
           <TierCard 
-            name="Platinum Partner" 
+            name="Platinum Partner (Exclusive)" 
             price="RM 1,000" 
-            benefits={["Exclusive Title Rights (Opening & End)", "Active Story/Plot Integration", "30s Commercial Brand Promo Video", "Limited to 1 Partner"]} 
+            icon={<Award className="text-[#FF0000]" size={20}/>}
+            benefits={[
+              "Title Rights: 'Powered by...' (Opening & End Credits)",
+              "Active Placement: Active part of the story/plot",
+              "Logo on 'Special Thanks' List",
+              "Social Media Shout-outs post",
+              "Social Media Story Mention",
+              "Logo on Poster & Banners",
+              "30s Promotional video",
+              "Availability: Strictly Limited to 1"
+            ]} 
           />
+
         </div>
       </section>
 
       {/* CONTACT SECTION */}
       <section id="contact" className="relative p-8 md:p-24 bg-[#FF0000] text-white overflow-hidden scroll-mt-20">
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
-        <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+        <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 md:gap-12">
           <div className="text-center md:text-left">
-            <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-4">
-              READY TO <br />PARTNER?
+            <h2 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
+              READY TO <br className="hidden sm:block" />PARTNER?
             </h2>
-            <p className="text-xs font-black uppercase tracking-[0.3em] opacity-80">Establish Connection for FFAM 2026</p>
+            <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] opacity-80">Establish Connection for FFAM 2026</p>
           </div>
-          <div className="w-full md:w-auto bg-black p-8 md:p-12 space-y-8 border border-white/20 shadow-2xl">
+          <div className="w-full md:w-auto bg-black p-6 md:p-12 space-y-6 md:space-y-8 border border-white/20 shadow-2xl">
             <div className="space-y-1">
-              <label className="text-[9px] uppercase tracking-[0.4em] text-white/30">Lead Producer</label>
-              <a href="tel:+60104284995" className="flex items-center gap-4 text-xl md:text-2xl font-black hover:text-[#FF0000] transition-colors">
-                <Phone size={20} className="text-[#FF0000]" /> +60 10428 4995
+              <label className="text-[8px] md:text-[9px] uppercase tracking-[0.4em] text-white/30">Lead Producer</label>
+              <a href="tel:+60104284995" className="flex items-center gap-3 md:gap-4 text-lg md:text-2xl font-black hover:text-[#FF0000] transition-colors">
+                <Phone size={18} className="text-[#FF0000]" /> +60 10428 4995
               </a>
             </div>
             <div className="space-y-1">
-              <label className="text-[9px] uppercase tracking-[0.4em] text-white/30">Official Email</label>
-              <a href="mailto:restudiomanagement@gmail.com" className="flex items-center gap-4 text-lg md:text-xl font-black hover:text-[#FF0000] transition-colors break-all">
-                <Mail size={20} className="text-[#FF0000]" /> restudiomanagement@gmail.com
+              <label className="text-[8px] md:text-[9px] uppercase tracking-[0.4em] text-white/30">Official Email</label>
+              <a href="mailto:restudiomanagement@gmail.com" className="flex items-center gap-3 md:gap-4 text-sm md:text-xl font-black hover:text-[#FF0000] transition-colors break-all">
+                <Mail size={18} className="text-[#FF0000]" /> restudiomanagement@gmail.com
               </a>
             </div>
             <div className="space-y-1">
-              <label className="text-[9px] uppercase tracking-[0.4em] text-white/30">Official Instagram</label>
-              <a href="https://www.instagram.com/reproductionusm/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-lg md:text-xl font-black hover:text-[#FF0000] transition-colors break-all">
-                <Instagram size={20} className="text-[#FF0000]" /> @reproductionusm
+              <label className="text-[8px] md:text-[9px] uppercase tracking-[0.4em] text-white/30">Official Instagram</label>
+              <a href={SOCIAL_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 md:gap-4 text-sm md:text-xl font-black hover:text-[#FF0000] transition-colors break-all">
+                <Instagram size={18} className="text-[#FF0000]" /> @restudiosusm
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="p-12 text-center flex flex-col items-center gap-4">
-        <a 
-          href="https://www.instagram.com/reproductionusm/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-white/20 hover:text-[#FF0000] transition-all flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] mb-2"
-        >
-          <Instagram size={14} /> IG: @REPRODUCTIONUSM
+      <footer className="p-8 md:p-12 text-center flex flex-col items-center gap-4">
+        <a href={SOCIAL_URL} target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-[#FF0000] transition-all flex items-center gap-2 text-[8px] md:text-[10px] uppercase tracking-[0.3em] mb-2">
+          <Instagram size={14} /> IG: @RESTUDIOSUSM
         </a>
-        <div className="text-[8px] opacity-20 uppercase tracking-[0.5em]">
+        <div className="text-[6px] md:text-[8px] opacity-20 uppercase tracking-[0.5em]">
           RE: STUDIOS // USM // FFAM 2026
         </div>
       </footer>
@@ -275,15 +287,16 @@ export default function REStudiosWebsite() {
   );
 }
 
-function TierCard({ name, price, benefits, highlight = false }: { name: string, price: string, benefits: string[], highlight?: boolean }) {
+function TierCard({ name, price, benefits, icon, highlight = false }: { name: string, price: string, benefits: string[], icon: React.ReactNode, highlight?: boolean }) {
   return (
-    <div className={`p-10 bg-[#0A0A0A] relative flex flex-col h-full ${highlight ? 'border-t-4 border-[#FF0000]' : ''}`}>
-      <h3 className="text-lg font-black uppercase mb-1">{name}</h3>
-      <div className="text-2xl font-black text-[#FF0000] mb-8 italic">{price}</div>
-      <ul className="space-y-4 flex-grow">
+    <div className={`p-8 md:p-10 bg-[#0A0A0A] relative flex flex-col h-full transition-all hover:bg-white/[0.02] ${highlight ? 'border-t-4 border-[#FF0000]' : 'border-t border-white/5'}`}>
+      <div className="mb-4">{icon}</div>
+      <h3 className="text-base md:text-lg font-black uppercase mb-1">{name}</h3>
+      <div className="text-xl md:text-2xl font-black text-[#FF0000] mb-6 md:mb-8 italic">{price}</div>
+      <ul className="space-y-3 md:space-y-4 flex-grow">
         {benefits.map((b, i) => (
-          <li key={i} className="flex gap-3 text-[9px] uppercase tracking-widest text-white/40 leading-relaxed">
-            <span className="text-[#FF0000] shrink-0">//</span> {b}
+          <li key={i} className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed">
+            <span className="text-[#FF0000] shrink-0 font-bold">//</span> {b}
           </li>
         ))}
       </ul>
