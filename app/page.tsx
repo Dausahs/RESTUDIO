@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { 
-  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram, Globe, Zap, Heart, Menu, X
+  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram, Globe, Zap, Heart, Menu, X, FileText
 } from 'lucide-react';
 
 const TikTokIcon = ({ size = 16 }: { size?: number }) => (
@@ -82,7 +82,7 @@ export default function REStudiosWebsite() {
               onClick={(e) => scrollToSection(e, item)} 
               className={`relative py-1 transition-colors hover:text-[#FF0000] group ${item === 'contact' ? 'text-[#FF0000]' : ''}`}
             >
-              {item === 'about' ? 'Identity' : item === 'team' ? 'Registry' : item.charAt(0).toUpperCase() + item.slice(1)}
+              {item === 'about' ? 'Identity' : item === 'team' ? 'Portfolio' : item.charAt(0).toUpperCase() + item.slice(1)}
               <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#FF0000] transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
@@ -97,7 +97,7 @@ export default function REStudiosWebsite() {
           </div>
         </button>
 
-        {/* Mobile Sidebar Overlay */}
+        {/* Mobile Sidebar Overlay with Backdrop Blur */}
         <div className={`fixed inset-0 bg-[#0A0A0A]/95 backdrop-blur-2xl z-[100] transition-all duration-500 ease-in-out md:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
           <div className="flex flex-col items-center justify-center h-full gap-8">
             {['about', 'impact', 'team', 'tiers', 'contact'].map((item, index) => (
@@ -271,29 +271,48 @@ export default function REStudiosWebsite() {
       </section>
 
       {/* UNIT REGISTRY */}
-      <section id="team" className="p-8 md:p-16 border-b border-white/10 bg-[#0A0A0A] scroll-mt-20">
-        <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
-          <div>
-            <h2 className="text-xl md:text-2xl font-black uppercase tracking-tighter italic">/ Unit_Registry</h2>
-            <p className="text-[8px] md:text-[9px] text-white/30 uppercase tracking-[0.3em] mt-1">Full Personnel // FFAM 2026</p>
+<section id="team" className="p-8 md:p-16 border-b border-white/10 bg-[#0A0A0A] scroll-mt-20">
+  <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+    <div>
+      <h2 className="text-xl md:text-2xl font-black uppercase tracking-tighter italic">/ Unit_Registry</h2>
+      <p className="text-[8px] md:text-[9px] text-white/30 uppercase tracking-[0.3em] mt-1">Full Personnel // FFAM 2026</p>
+    </div>
+  </div>
+
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+    {team.map((member) => (
+      <div key={member.id} className="group relative bg-white/[0.03] border border-white/5 p-3 md:p-4 hover:border-[#FF0000]/50 transition-all flex flex-col justify-between h-full">
+        <div>
+          <div className="flex justify-between items-start mb-2 md:mb-3">
+            <span className="text-[7px] md:text-[8px] text-[#FF0000] font-bold tracking-widest">{member.id}</span>
+            <div className="text-white/40 group-hover:text-[#FF0000] transition-colors scale-75 md:scale-100">
+              {getLinkIcon(member.link)}
+            </div>
           </div>
+          <h3 className="text-[10px] md:text-xs font-black uppercase tracking-tighter group-hover:text-[#FF0000] transition-colors truncate">
+            {member.name}
+          </h3>
+          <p className="text-[7px] md:text-[8px] uppercase tracking-[0.1em] text-white/40 truncate mb-4">
+            {member.role}
+          </p>
+          
+          {/* PRESS INDIVIDUAL PORTFOLIO CARD BUTTON */}
+          <a 
+            href={member.link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-[6px] md:text-[7px] font-black tracking-widest uppercase py-2 px-3 bg-white/5 hover:bg-[#FF0000] hover:text-white transition-all w-full justify-center border border-white/5"
+          >
+            View Portfolio
+            <ExternalLink size={10} />
+          </a>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
-          {team.map((member) => (
-            <a key={member.id} href={member.link} target="_blank" rel="noopener noreferrer" className="group relative bg-white/[0.03] border border-white/5 p-3 md:p-4 hover:bg-white/[0.07] hover:border-[#FF0000]/50 transition-all cursor-pointer">
-              <div className="flex justify-between items-start mb-2 md:mb-3">
-                <span className="text-[7px] md:text-[8px] text-[#FF0000] font-bold tracking-widest">{member.id}</span>
-                <div className="text-white/40 group-hover:text-[#FF0000] transition-colors scale-75 md:scale-100">
-                  {getLinkIcon(member.link)}
-                </div>
-              </div>
-              <h3 className="text-[10px] md:text-xs font-black uppercase tracking-tighter group-hover:text-[#FF0000] transition-colors truncate">{member.name}</h3>
-              <p className="text-[7px] md:text-[8px] uppercase tracking-[0.1em] text-white/40 truncate">{member.role}</p>
-              <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-[#FF0000] group-hover:w-full transition-all duration-300" />
-            </a>
-          ))}
-        </div>
-      </section>
+        
+        <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-[#FF0000] group-hover:w-full transition-all duration-300" />
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* SPONSORSHIP TIERS */}
       <section id="tiers" className="p-8 md:p-20 border-b border-white/10 scroll-mt-20 bg-[#0A0A0A]">
