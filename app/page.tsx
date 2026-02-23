@@ -1,8 +1,8 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
-  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram, Globe, Zap, Heart
+  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram, Globe, Zap, Heart, Menu, X
 } from 'lucide-react';
 
 const TikTokIcon = ({ size = 16 }: { size?: number }) => (
@@ -12,13 +12,23 @@ const TikTokIcon = ({ size = 16 }: { size?: number }) => (
 );
 
 export default function REStudiosWebsite() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const SOCIAL_URL = "https://www.instagram.com/restudiosusm/?hl=en";
+  
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMenuOpen]);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
     }
   };
 
@@ -72,10 +82,36 @@ export default function REStudiosWebsite() {
               onClick={(e) => scrollToSection(e, item)} 
               className={`relative py-1 transition-colors hover:text-[#FF0000] group ${item === 'contact' ? 'text-[#FF0000]' : ''}`}
             >
-              {item === 'about' ? 'Identity' : item === 'team' ? 'Portfolio' : item.charAt(0).toUpperCase() + item.slice(1)}
+              {item === 'about' ? 'Identity' : item === 'team' ? 'Registry' : item.charAt(0).toUpperCase() + item.slice(1)}
               <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#FF0000] transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
+        </div>
+
+        {/* Mobile Toggle */}
+        <button className="md:hidden text-white z-[110] p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <div className="relative w-6 h-6">
+            <span className={`absolute block h-0.5 w-6 bg-white transition-all duration-300 ${isMenuOpen ? 'rotate-45 top-3' : 'top-1'}`}></span>
+            <span className={`absolute block h-0.5 w-6 bg-white transition-all duration-300 top-3 ${isMenuOpen ? 'opacity-0' : 'opacity-1'}`}></span>
+            <span className={`absolute block h-0.5 w-6 bg-white transition-all duration-300 ${isMenuOpen ? '-rotate-45 top-3' : 'top-5'}`}></span>
+          </div>
+        </button>
+
+        {/* Mobile Sidebar Overlay */}
+        <div className={`fixed inset-0 bg-[#0A0A0A]/95 backdrop-blur-2xl z-[100] transition-all duration-500 ease-in-out md:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+          <div className="flex flex-col items-center justify-center h-full gap-8">
+            {['about', 'impact', 'team', 'tiers', 'contact'].map((item, index) => (
+              <a 
+                key={item}
+                href={`#${item}`} 
+                onClick={(e) => scrollToSection(e, item)} 
+                className={`text-4xl font-black uppercase tracking-tighter italic transition-all duration-300 hover:text-[#FF0000] hover:scale-110 ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} ${item === 'contact' ? 'text-[#FF0000]' : ''}`}
+                style={{ transitionDelay: `${index * 50}ms` }}
+              >
+                {item === 'about' ? 'Identity' : item === 'team' ? 'Registry' : item}
+              </a>
+            ))}
+          </div>
         </div>
       </nav>
 
@@ -154,7 +190,7 @@ export default function REStudiosWebsite() {
         </div>
       </section>
 
-      {/* AUDIENCE IMPACT & VISIBILITY - FULL REVERTED TEXT */}
+      {/* AUDIENCE IMPACT & VISIBILITY */}
       <section id="impact" className="p-8 md:p-20 bg-[#0A0A0A] border-b border-white/5 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10 md:mb-16">
@@ -164,7 +200,6 @@ export default function REStudiosWebsite() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
-            {/* Industry Eye */}
             <div className="p-8 md:p-10 bg-[#0F0F0F] flex flex-col h-full border border-white/5">
               <span className="text-[#FF0000] text-[9px] font-black uppercase tracking-[0.3em] mb-4">// The Industry Eye</span>
               <h3 className="text-lg font-black uppercase tracking-tighter mb-4">Evaluating the Next Breakout</h3>
@@ -177,7 +212,6 @@ export default function REStudiosWebsite() {
               </div>
             </div>
 
-            {/* National Stage */}
             <div className="p-8 md:p-10 bg-[#0F0F0F] flex flex-col h-full border border-white/5">
               <span className="text-[#FF0000] text-[9px] font-black uppercase tracking-[0.3em] mb-4">// A National Stage</span>
               <h3 className="text-lg font-black uppercase tracking-tighter mb-4">Beyond the Classroom</h3>
@@ -190,7 +224,6 @@ export default function REStudiosWebsite() {
               </div>
             </div>
 
-            {/* IPT Legacy */}
             <div className="p-8 md:p-10 bg-[#0F0F0F] flex flex-col h-full border border-white/5">
               <span className="text-[#FF0000] text-[9px] font-black uppercase tracking-[0.3em] mb-4">// The IPT Legacy</span>
               <h3 className="text-lg font-black uppercase tracking-tighter mb-4">The Battle for USM</h3>
@@ -203,7 +236,6 @@ export default function REStudiosWebsite() {
               </div>
             </div>
 
-            {/* Youth Connection */}
             <div className="p-8 md:p-10 bg-[#0F0F0F] flex flex-col h-full border border-white/5">
               <span className="text-[#FF0000] text-[9px] font-black uppercase tracking-[0.3em] mb-4">// Youth Connection</span>
               <h3 className="text-lg font-black uppercase tracking-tighter mb-4">Cultural Heartbeat</h3>
@@ -216,7 +248,6 @@ export default function REStudiosWebsite() {
               </div>
             </div>
 
-            {/* Long-Tail Value */}
             <div className="p-8 md:p-10 bg-[#0F0F0F] flex flex-col h-full border border-white/5">
               <span className="text-[#FF0000] text-[9px] font-black uppercase tracking-[0.3em] mb-4">// Long-Tail Value</span>
               <h3 className="text-lg font-black uppercase tracking-tighter mb-4">A Permanent Asset</h3>
@@ -229,7 +260,6 @@ export default function REStudiosWebsite() {
               </div>
             </div>
 
-            {/* CALL TO ACTION */}
             <div className="p-8 md:p-10 bg-[#FF0000] flex flex-col justify-center items-center text-center group">
               <h3 className="text-2xl font-black text-white uppercase italic mb-6">READY TO PARTNER?</h3>
               <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="inline-flex bg-black text-white px-8 py-4 text-[10px] font-black items-center gap-3 hover:bg-white hover:text-black transition-all">
@@ -248,7 +278,6 @@ export default function REStudiosWebsite() {
             <p className="text-[8px] md:text-[9px] text-white/30 uppercase tracking-[0.3em] mt-1">Full Personnel // FFAM 2026</p>
           </div>
         </div>
-
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
           {team.map((member) => (
             <a key={member.id} href={member.link} target="_blank" rel="noopener noreferrer" className="group relative bg-white/[0.03] border border-white/5 p-3 md:p-4 hover:bg-white/[0.07] hover:border-[#FF0000]/50 transition-all cursor-pointer">
@@ -258,12 +287,8 @@ export default function REStudiosWebsite() {
                   {getLinkIcon(member.link)}
                 </div>
               </div>
-              <h3 className="text-[10px] md:text-xs font-black uppercase tracking-tighter group-hover:text-[#FF0000] transition-colors truncate">
-                {member.name}
-              </h3>
-              <p className="text-[7px] md:text-[8px] uppercase tracking-[0.1em] text-white/40 truncate">
-                {member.role}
-              </p>
+              <h3 className="text-[10px] md:text-xs font-black uppercase tracking-tighter group-hover:text-[#FF0000] transition-colors truncate">{member.name}</h3>
+              <p className="text-[7px] md:text-[8px] uppercase tracking-[0.1em] text-white/40 truncate">{member.role}</p>
               <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-[#FF0000] group-hover:w-full transition-all duration-300" />
             </a>
           ))}
@@ -276,7 +301,6 @@ export default function REStudiosWebsite() {
           <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic">/ Support_Framework</h2>
           <p className="text-[8px] md:text-[10px] text-white/30 uppercase tracking-[0.3em] mt-2">Investment Levels for FFAM 2026</p>
         </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 border border-white/5">
           {/* Silver */}
           <div className="p-8 md:p-10 bg-[#0A0A0A] relative flex flex-col h-full border-t border-white/5">
@@ -291,7 +315,6 @@ export default function REStudiosWebsite() {
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/60 leading-relaxed pt-2 font-bold"><span className="text-[#FF0000] font-bold">//</span> Availability: Multiple</li>
             </ul>
           </div>
-
           {/* Gold */}
           <div className="p-8 md:p-10 bg-[#0A0A0A] relative flex flex-col h-full border-t-4 border-[#FF0000]">
             <Zap className="text-[#FF0000] mb-4" size={20} />
@@ -304,11 +327,9 @@ export default function REStudiosWebsite() {
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Shout-outs</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed font-bold"><span className="text-[#FF0000] font-bold">//</span> Social Media Story Mention</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on Poster & Banners</li>
-              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Collaboration</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/60 leading-relaxed pt-2 font-bold"><span className="text-[#FF0000] font-bold">//</span> Availability: Multiple</li>
             </ul>
           </div>
-
           {/* Platinum */}
           <div className="p-8 md:p-10 bg-[#0A0A0A] relative flex flex-col h-full border-t border-white/5">
             <Award className="text-[#FF0000] mb-4" size={20} />
@@ -334,23 +355,21 @@ export default function REStudiosWebsite() {
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
         <div className="relative z-10 max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 md:gap-12">
           <div className="text-center md:text-left">
-            <h2 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-4">
-              READY TO <br className="hidden sm:block" />PARTNER?
-            </h2>
+            <h2 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] mb-4">READY TO <br className="hidden sm:block" />PARTNER?</h2>
             <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] opacity-80">Establish Connection for FFAM 2026</p>
           </div>
-          <div className="w-full md:w-auto bg-black p-6 md:p-12 space-y-6 md:space-y-8 border border-white/20 shadow-2xl">
+          <div className="w-full md:w-auto bg-black p-6 md:p-12 space-y-6 md:space-y-8 border border-white/20 shadow-2xl transition-transform hover:scale-105">
             <div className="space-y-1">
               <label className="text-[8px] md:text-[9px] uppercase tracking-[0.4em] text-white/30">Lead Producer</label>
-              <a href="tel:+60104284995" className="flex items-center gap-3 md:gap-4 text-lg md:text-2xl font-black hover:text-[#FF0000] transition-colors">
-                <Phone size={18} className="text-[#FF0000]" /> +60 10428 4995
-              </a>
+              <a href="tel:+60104284995" className="flex items-center gap-3 md:gap-4 text-lg md:text-2xl font-black hover:text-[#FF0000] transition-colors"><Phone size={18} className="text-[#FF0000]" /> +60 10428 4995</a>
             </div>
             <div className="space-y-1">
               <label className="text-[8px] md:text-[9px] uppercase tracking-[0.4em] text-white/30">Official Email</label>
-              <a href="mailto:restudiomanagement@gmail.com" className="flex items-center gap-3 md:gap-4 text-sm md:text-xl font-black hover:text-[#FF0000] transition-colors break-all">
-                <Mail size={18} className="text-[#FF0000]" /> restudiomanagement@gmail.com
-              </a>
+              <a href="mailto:restudiomanagement@gmail.com" className="flex items-center gap-3 md:gap-4 text-sm md:text-xl font-black hover:text-[#FF0000] transition-colors break-all"><Mail size={18} className="text-[#FF0000]" /> restudiomanagement@gmail.com</a>
+            </div>
+            <div className="space-y-1">
+              <label className="text-[8px] md:text-[9px] uppercase tracking-[0.4em] text-white/30">Official Instagram</label>
+              <a href={SOCIAL_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 md:gap-4 text-sm md:text-xl font-black hover:text-[#FF0000] transition-colors break-all"><Instagram size={18} className="text-[#FF0000]" /> @restudiosusm</a>
             </div>
           </div>
         </div>
@@ -360,13 +379,12 @@ export default function REStudiosWebsite() {
         <a href={SOCIAL_URL} target="_blank" rel="noopener noreferrer" className="text-white/20 hover:text-[#FF0000] transition-all flex items-center gap-2 text-[8px] md:text-[10px] uppercase tracking-[0.3em] mb-2">
           <Instagram size={14} /> IG: @RESTUDIOSUSM
         </a>
-        <div className="text-[6px] md:text-[8px] opacity-20 uppercase tracking-[0.5em]">
-          RE: STUDIOS // USM // FFAM 2026
-        </div>
+        <div className="text-[6px] md:text-[8px] opacity-20 uppercase tracking-[0.5em]">RE: STUDIOS // USM // FFAM 2026</div>
       </footer>
 
       <style jsx global>{`
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        html { scroll-behavior: smooth; }
       `}</style>
     </div>
   );
