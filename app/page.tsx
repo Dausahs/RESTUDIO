@@ -345,7 +345,7 @@ export default function REStudiosWebsite() {
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on 'Special Thanks' List</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Shout-outs</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed font-bold"><span className="text-[#FF0000] font-bold">//</span> Social Media Story Mention</li>
-              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on Poster & Banners</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on Poster</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/60 leading-relaxed pt-2 font-bold"><span className="text-[#FF0000] font-bold">//</span> Availability: Multiple</li>
             </ul>
           </div>
@@ -360,7 +360,7 @@ export default function REStudiosWebsite() {
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on 'Special Thanks' List</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Shout-outs</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed font-bold"><span className="text-[#FF0000] font-bold">//</span> Social Media Story Mention</li>
-              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on Poster & Banners</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on Poster</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Collaboration</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> 30s Promotional video</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/60 leading-relaxed pt-2 font-bold"><span className="text-[#FF0000] font-bold">//</span> Availability: Strictly Limited to 1</li>
