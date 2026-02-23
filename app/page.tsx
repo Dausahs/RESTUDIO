@@ -2,10 +2,9 @@
 
 import React from 'react';
 import { 
-  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram, Globe, Zap, Heart, Eye, TrendingUp, ShieldCheck
+  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram, Globe, Zap, Heart
 } from 'lucide-react';
 
-// Custom TikTok Icon
 const TikTokIcon = ({ size = 16 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
@@ -14,7 +13,7 @@ const TikTokIcon = ({ size = 16 }: { size?: number }) => (
 
 export default function REStudiosWebsite() {
   const SOCIAL_URL = "https://www.instagram.com/restudiosusm/?hl=en";
-  
+
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
@@ -55,21 +54,28 @@ export default function REStudiosWebsite() {
     <div className="min-h-screen bg-[#0A0A0A] text-[#F2F2F2] font-mono selection:bg-[#FF0000] selection:text-white overflow-x-hidden">
       
       {/* NAVIGATION */}
-      <nav className="relative z-[60] flex flex-wrap justify-between items-center p-4 md:p-6 lg:px-12 border-b border-white/5 bg-[#0A0A0A]/90 backdrop-blur-md sticky top-0">
-        <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
-          <img src="/asset/RE LOGO-01.svg" alt="RE Logo" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
+      <nav className="z-[100] flex justify-between items-center p-4 md:p-6 lg:px-12 border-b border-white/5 bg-[#0A0A0A]/90 backdrop-blur-xl sticky top-0">
+        <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+          <img src="/asset/RE LOGO-01.svg" alt="RE Logo" className="w-6 h-6 md:w-8 md:h-8 object-contain transition-transform group-hover:rotate-12" />
           <div className="flex flex-col">
             <span className="text-lg md:text-2xl font-black tracking-tighter leading-none">RE<span className="text-[#FF0000]">:</span>STUDIOS</span>
             <span className="text-[6px] md:text-[8px] tracking-[0.4em] opacity-40 uppercase">USM Collective</span>
           </div>
         </div>
         
-        <div className="flex gap-4 md:gap-8 text-[8px] md:text-[10px] font-bold uppercase tracking-widest mt-2 md:mt-0">
-          <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-[#FF0000] transition-colors">Identity</a>
-          <a href="#impact" onClick={(e) => scrollToSection(e, 'impact')} className="hover:text-[#FF0000] transition-colors">Impact</a>
-          <a href="#team" onClick={(e) => scrollToSection(e, 'team')} className="hover:text-[#FF0000] transition-colors">Portfolio</a>
-          <a href="#tiers" onClick={(e) => scrollToSection(e, 'tiers')} className="hover:text-[#FF0000] transition-colors">Tiers</a>
-          <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="hover:text-[#FF0000] transition-colors text-[#FF0000]">Contact</a>
+        {/* Desktop Links */}
+        <div className="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em]">
+          {['about', 'impact', 'team', 'tiers', 'contact'].map((item) => (
+            <a 
+              key={item}
+              href={`#${item}`} 
+              onClick={(e) => scrollToSection(e, item)} 
+              className={`relative py-1 transition-colors hover:text-[#FF0000] group ${item === 'contact' ? 'text-[#FF0000]' : ''}`}
+            >
+              {item === 'about' ? 'Identity' : item === 'team' ? 'Portfolio' : item.charAt(0).toUpperCase() + item.slice(1)}
+              <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#FF0000] transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          ))}
         </div>
       </nav>
 
@@ -148,12 +154,12 @@ export default function REStudiosWebsite() {
         </div>
       </section>
 
-      {/* AUDIENCE IMPACT & VISIBILITY */}
+      {/* AUDIENCE IMPACT & VISIBILITY - FULL REVERTED TEXT */}
       <section id="impact" className="p-8 md:p-20 bg-[#0A0A0A] border-b border-white/5 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10 md:mb-16">
             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic mb-4 text-center md:text-left">
-              / Impact <span className="text-[#FF0000]">&</span> Visibility
+              / Impact<span className="text-[#FF0000]">&</span>Visibility
             </h2>
           </div>
 
@@ -187,7 +193,7 @@ export default function REStudiosWebsite() {
             {/* IPT Legacy */}
             <div className="p-8 md:p-10 bg-[#0F0F0F] flex flex-col h-full border border-white/5">
               <span className="text-[#FF0000] text-[9px] font-black uppercase tracking-[0.3em] mb-4">// The IPT Legacy</span>
-              <h3 className="text-lg font-black uppercase tracking-tighter mb-4">The Battle for FFAM</h3>
+              <h3 className="text-lg font-black uppercase tracking-tighter mb-4">The Battle for USM</h3>
               <p className="text-white/40 text-[11px] leading-relaxed uppercase tracking-wide mb-8 flex-grow">
                 FFAM is the "World Cup" of student cinema. You are fueling the team determined to bring the Grand Champion Trophy back to our campus.
               </p>
@@ -240,11 +246,6 @@ export default function REStudiosWebsite() {
           <div>
             <h2 className="text-xl md:text-2xl font-black uppercase tracking-tighter italic">/ Unit_Registry</h2>
             <p className="text-[8px] md:text-[9px] text-white/30 uppercase tracking-[0.3em] mt-1">Full Personnel // FFAM 2026</p>
-          </div>
-          <div className="bg-[#FF0000]/10 border border-[#FF0000]/30 p-2 md:p-3">
-            <p className="text-[8px] md:text-[10px] text-[#FF0000] font-black uppercase tracking-widest text-center md:text-left">
-              [SYSTEM NOTE]: CLICK ANY CARD TO VIEW PERSONNEL PORTFOLIO.
-            </p>
           </div>
         </div>
 
@@ -301,9 +302,9 @@ export default function REStudiosWebsite() {
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Passive Integration: Background signage/props</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on 'Special Thanks' List</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Shout-outs</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed font-bold"><span className="text-[#FF0000] font-bold">//</span> Social Media Story Mention</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on Poster & Banners</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Collaboration</li>
-              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Story Mention</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/60 leading-relaxed pt-2 font-bold"><span className="text-[#FF0000] font-bold">//</span> Availability: Multiple</li>
             </ul>
           </div>
@@ -318,9 +319,10 @@ export default function REStudiosWebsite() {
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Active Placement: Active part of the story/plot</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on 'Special Thanks' List</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Shout-outs</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed font-bold"><span className="text-[#FF0000] font-bold">//</span> Social Media Story Mention</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on Poster & Banners</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Collaboration</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> 30s Promotional video</li>
-              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Story Mention</li>
               <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/60 leading-relaxed pt-2 font-bold"><span className="text-[#FF0000] font-bold">//</span> Availability: Strictly Limited to 1</li>
             </ul>
           </div>
@@ -348,12 +350,6 @@ export default function REStudiosWebsite() {
               <label className="text-[8px] md:text-[9px] uppercase tracking-[0.4em] text-white/30">Official Email</label>
               <a href="mailto:restudiomanagement@gmail.com" className="flex items-center gap-3 md:gap-4 text-sm md:text-xl font-black hover:text-[#FF0000] transition-colors break-all">
                 <Mail size={18} className="text-[#FF0000]" /> restudiomanagement@gmail.com
-              </a>
-            </div>
-            <div className="space-y-1">
-              <label className="text-[8px] md:text-[9px] uppercase tracking-[0.4em] text-white/30">Official Instagram</label>
-              <a href={SOCIAL_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 md:gap-4 text-sm md:text-xl font-black hover:text-[#FF0000] transition-colors break-all">
-                <Instagram size={18} className="text-[#FF0000]" /> @restudiosusm
               </a>
             </div>
           </div>
