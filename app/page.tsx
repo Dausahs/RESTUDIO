@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { 
-  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram, Globe, Zap, Heart
+  ChevronRight, Mail, Phone, ExternalLink, Target, Award, Users, Instagram, Globe, Zap, Heart, Eye, TrendingUp, ShieldCheck
 } from 'lucide-react';
 
 // Custom TikTok Icon
@@ -66,7 +66,8 @@ export default function REStudiosWebsite() {
         
         <div className="flex gap-4 md:gap-8 text-[8px] md:text-[10px] font-bold uppercase tracking-widest mt-2 md:mt-0">
           <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-[#FF0000] transition-colors">Identity</a>
-          <a href="#team" onClick={(e) => scrollToSection(e, 'team')} className="hover:text-[#FF0000] transition-colors">Registry</a>
+          <a href="#impact" onClick={(e) => scrollToSection(e, 'impact')} className="hover:text-[#FF0000] transition-colors">Impact</a>
+          <a href="#team" onClick={(e) => scrollToSection(e, 'team')} className="hover:text-[#FF0000] transition-colors">Portfolio</a>
           <a href="#tiers" onClick={(e) => scrollToSection(e, 'tiers')} className="hover:text-[#FF0000] transition-colors">Tiers</a>
           <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="hover:text-[#FF0000] transition-colors text-[#FF0000]">Contact</a>
         </div>
@@ -147,6 +148,92 @@ export default function REStudiosWebsite() {
         </div>
       </section>
 
+      {/* AUDIENCE IMPACT & VISIBILITY */}
+      <section id="impact" className="p-8 md:p-20 bg-[#0A0A0A] border-b border-white/5 scroll-mt-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-10 md:mb-16">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic mb-4 text-center md:text-left">
+              / Impact <span className="text-[#FF0000]">&</span> Visibility
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
+            {/* Industry Eye */}
+            <div className="p-8 md:p-10 bg-[#0F0F0F] flex flex-col h-full border border-white/5">
+              <span className="text-[#FF0000] text-[9px] font-black uppercase tracking-[0.3em] mb-4">// The Industry Eye</span>
+              <h3 className="text-lg font-black uppercase tracking-tighter mb-4">Evaluating the Next Breakout</h3>
+              <p className="text-white/40 text-[11px] leading-relaxed uppercase tracking-wide mb-8 flex-grow">
+                With legendary judges like Ghaz Abu Bakar and Sein Qudsi, your brand is associated with the high-caliber talent these giants scout for.
+              </p>
+              <div className="pt-6 border-t border-white/5">
+                <span className="text-[8px] text-white/30 uppercase tracking-widest block mb-1">Direct visibility to:</span>
+                <span className="text-xs font-bold text-white uppercase italic">Malaysian Film Industry Titans</span>
+              </div>
+            </div>
+
+            {/* National Stage */}
+            <div className="p-8 md:p-10 bg-[#0F0F0F] flex flex-col h-full border border-white/5">
+              <span className="text-[#FF0000] text-[9px] font-black uppercase tracking-[0.3em] mb-4">// A National Stage</span>
+              <h3 className="text-lg font-black uppercase tracking-tighter mb-4">Beyond the Classroom</h3>
+              <p className="text-white/40 text-[11px] leading-relaxed uppercase tracking-wide mb-8 flex-grow">
+                We are moving to the Grand Finals, showcasing your brand to a live audience of creative pioneers and student leaders from all 13 states.
+              </p>
+              <div className="pt-6 border-t border-white/5">
+                <span className="text-[8px] text-white/30 uppercase tracking-widest block mb-1">Reach:</span>
+                <span className="text-xs font-bold text-white uppercase italic">20+ IPT National Delegations</span>
+              </div>
+            </div>
+
+            {/* IPT Legacy */}
+            <div className="p-8 md:p-10 bg-[#0F0F0F] flex flex-col h-full border border-white/5">
+              <span className="text-[#FF0000] text-[9px] font-black uppercase tracking-[0.3em] mb-4">// The IPT Legacy</span>
+              <h3 className="text-lg font-black uppercase tracking-tighter mb-4">The Battle for FFAM</h3>
+              <p className="text-white/40 text-[11px] leading-relaxed uppercase tracking-wide mb-8 flex-grow">
+                FFAM is the "World Cup" of student cinema. You are fueling the team determined to bring the Grand Champion Trophy back to our campus.
+              </p>
+              <div className="pt-6 border-t border-white/5">
+                <span className="text-[8px] text-white/30 uppercase tracking-widest block mb-1">Audience:</span>
+                <span className="text-xs font-bold text-white uppercase italic">15,000+ Captive USM Students</span>
+              </div>
+            </div>
+
+            {/* Youth Connection */}
+            <div className="p-8 md:p-10 bg-[#0F0F0F] flex flex-col h-full border border-white/5">
+              <span className="text-[#FF0000] text-[9px] font-black uppercase tracking-[0.3em] mb-4">// Youth Connection</span>
+              <h3 className="text-lg font-black uppercase tracking-tighter mb-4">Cultural Heartbeat</h3>
+              <p className="text-white/40 text-[11px] leading-relaxed uppercase tracking-wide mb-8 flex-grow">
+                We are tapping into the heartbeat of the Malaysian youth film movement, connecting you directly to Gen Z trendsetters.
+              </p>
+              <div className="pt-6 border-t border-white/5">
+                <span className="text-[8px] text-white/30 uppercase tracking-widest block mb-1">Impressions:</span>
+                <span className="text-xs font-bold text-white uppercase italic">50,000+ Multi-Channel Reach</span>
+              </div>
+            </div>
+
+            {/* Long-Tail Value */}
+            <div className="p-8 md:p-10 bg-[#0F0F0F] flex flex-col h-full border border-white/5">
+              <span className="text-[#FF0000] text-[9px] font-black uppercase tracking-[0.3em] mb-4">// Long-Tail Value</span>
+              <h3 className="text-lg font-black uppercase tracking-tighter mb-4">A Permanent Asset</h3>
+              <p className="text-white/40 text-[11px] leading-relaxed uppercase tracking-wide mb-8 flex-grow">
+                Unlike temporary banners, this film lives forever. Your brand remains in the credits for all future screenings and festivals.
+              </p>
+              <div className="pt-6 border-t border-white/5">
+                <span className="text-[8px] text-white/30 uppercase tracking-widest block mb-1">Lifespan:</span>
+                <span className="text-xs font-bold text-white uppercase italic">Unlimited Residual Exposure</span>
+              </div>
+            </div>
+
+            {/* CALL TO ACTION */}
+            <div className="p-8 md:p-10 bg-[#FF0000] flex flex-col justify-center items-center text-center group">
+              <h3 className="text-2xl font-black text-white uppercase italic mb-6">READY TO PARTNER?</h3>
+              <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="inline-flex bg-black text-white px-8 py-4 text-[10px] font-black items-center gap-3 hover:bg-white hover:text-black transition-all">
+                SECURE SLOT <ChevronRight size={14} />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* UNIT REGISTRY */}
       <section id="team" className="p-8 md:p-16 border-b border-white/10 bg-[#0A0A0A] scroll-mt-20">
         <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -188,53 +275,55 @@ export default function REStudiosWebsite() {
           <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tighter italic">/ Support_Framework</h2>
           <p className="text-[8px] md:text-[10px] text-white/30 uppercase tracking-[0.3em] mt-2">Investment Levels for FFAM 2026</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-px bg-white/5 border border-white/5">
-          
-          <TierCard 
-            name="Silver Partner (Contributor)" 
-            price="RM300 (or In-Kind)" 
-            icon={<Heart className="text-[#FF0000]" size={20}/>}
-            benefits={[
-              "Special Thanks (End Credits)",
-              "Logo on 'Special Thanks' List",
-              "Social Media Shout-outs post",
-              "Social Media Story Mention",
-              "Availability: Multiple"
-            ]} 
-          />
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 border border-white/5">
+          {/* Silver */}
+          <div className="p-8 md:p-10 bg-[#0A0A0A] relative flex flex-col h-full border-t border-white/5">
+            <Heart className="text-[#FF0000] mb-4" size={20} />
+            <h3 className="text-base md:text-lg font-black uppercase mb-1">Silver Partner (Contributor)</h3>
+            <div className="text-xl md:text-2xl font-black text-[#FF0000] mb-6 md:mb-8 italic">RM300 (or In-Kind)</div>
+            <ul className="space-y-3 md:space-y-4 flex-grow">
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Special Thanks (End Credits)</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on 'Special Thanks' List</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Shout-outs</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Story Mention</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/60 leading-relaxed pt-2 font-bold"><span className="text-[#FF0000] font-bold">//</span> Availability: Multiple</li>
+            </ul>
+          </div>
 
-          <TierCard 
-            name="Gold Partner (Official Supporter)" 
-            price="RM 500 (or In-Kind)" 
-            highlight 
-            icon={<Zap className="text-[#FF0000]" size={20}/>}
-            benefits={[
-              "Official Partner (End Credits)",
-              "Passive Integration: Background signage/props",
-              "Logo on 'Special Thanks' List",
-              "Social Media Shout-outs post",
-              "Social Media Story Mention",
-              "Logo on Poster & Banners",
-              "Availability: Multiple"
-            ]} 
-          />
+          {/* Gold */}
+          <div className="p-8 md:p-10 bg-[#0A0A0A] relative flex flex-col h-full border-t-4 border-[#FF0000]">
+            <Zap className="text-[#FF0000] mb-4" size={20} />
+            <h3 className="text-base md:text-lg font-black uppercase mb-1">Gold Partner (Official Supporter)</h3>
+            <div className="text-xl md:text-2xl font-black text-[#FF0000] mb-6 md:mb-8 italic">RM 500 (or In-Kind)</div>
+            <ul className="space-y-3 md:space-y-4 flex-grow">
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Official Partner (End Credits)</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Passive Integration: Background signage/props</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on 'Special Thanks' List</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Shout-outs</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on Poster & Banners</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Collaboration</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Story Mention</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/60 leading-relaxed pt-2 font-bold"><span className="text-[#FF0000] font-bold">//</span> Availability: Multiple</li>
+            </ul>
+          </div>
 
-          <TierCard 
-            name="Platinum Partner (Exclusive)" 
-            price="RM 1,000" 
-            icon={<Award className="text-[#FF0000]" size={20}/>}
-            benefits={[
-              "Title Rights: 'Powered by...' (Opening & End Credits)",
-              "Active Placement: Active part of the story/plot",
-              "Logo on 'Special Thanks' List",
-              "Social Media Shout-outs post",
-              "Social Media Story Mention",
-              "Logo on Poster & Banners",
-              "30s Promotional video",
-              "Availability: Strictly Limited to 1"
-            ]} 
-          />
-
+          {/* Platinum */}
+          <div className="p-8 md:p-10 bg-[#0A0A0A] relative flex flex-col h-full border-t border-white/5">
+            <Award className="text-[#FF0000] mb-4" size={20} />
+            <h3 className="text-base md:text-lg font-black uppercase mb-1">Platinum Partner (Exclusive)</h3>
+            <div className="text-xl md:text-2xl font-black text-[#FF0000] mb-6 md:mb-8 italic">RM 1,000</div>
+            <ul className="space-y-3 md:space-y-4 flex-grow">
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Title Rights: 'Powered by...' (Opening & End Credits)</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Active Placement: Active part of the story/plot</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on 'Special Thanks' List</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Shout-outs</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Logo on Poster & Banners</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> 30s Promotional video</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed"><span className="text-[#FF0000] font-bold">//</span> Social Media Story Mention</li>
+              <li className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/60 leading-relaxed pt-2 font-bold"><span className="text-[#FF0000] font-bold">//</span> Availability: Strictly Limited to 1</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -283,23 +372,6 @@ export default function REStudiosWebsite() {
       <style jsx global>{`
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
       `}</style>
-    </div>
-  );
-}
-
-function TierCard({ name, price, benefits, icon, highlight = false }: { name: string, price: string, benefits: string[], icon: React.ReactNode, highlight?: boolean }) {
-  return (
-    <div className={`p-8 md:p-10 bg-[#0A0A0A] relative flex flex-col h-full transition-all hover:bg-white/[0.02] ${highlight ? 'border-t-4 border-[#FF0000]' : 'border-t border-white/5'}`}>
-      <div className="mb-4">{icon}</div>
-      <h3 className="text-base md:text-lg font-black uppercase mb-1">{name}</h3>
-      <div className="text-xl md:text-2xl font-black text-[#FF0000] mb-6 md:mb-8 italic">{price}</div>
-      <ul className="space-y-3 md:space-y-4 flex-grow">
-        {benefits.map((b, i) => (
-          <li key={i} className="flex gap-3 text-[8px] md:text-[9px] uppercase tracking-widest text-white/40 leading-relaxed">
-            <span className="text-[#FF0000] shrink-0 font-bold">//</span> {b}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
